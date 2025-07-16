@@ -4,4 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/eslint', '@nuxt/test-utils'],
   ssr: false,
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        types: ['@nordhealth/components/lib/vue.d.ts'],
+      },
+    },
+  },
 });
