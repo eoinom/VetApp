@@ -4,6 +4,13 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: ['@nuxt/eslint'],
 	ssr: false,
+	css: [
+		'@nordhealth/css/lib/nord.min.css',
+		'@nordhealth/themes/lib/vet.css',
+		'@nordhealth/themes/lib/vet-high-contrast.css',
+		'@nordhealth/themes/lib/vet-dark.css',
+		'@nordhealth/themes/lib/vet-dark-high-contrast.css',
+	],
 	typescript: {
 		tsConfig: {
 			compilerOptions: {
