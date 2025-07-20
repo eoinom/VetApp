@@ -1,4 +1,12 @@
+<script setup lang="ts">
+import '@nordhealth/components/lib/TopBar';
+</script>
+
 <template>
+	<nord-top-bar>
+		<span>VetApp</span>
+	</nord-top-bar>
+
 	<main class="n-stack-horizontal">
 		<Transition name="fade" mode="out-in" appear>
 			<NuxtPage />
