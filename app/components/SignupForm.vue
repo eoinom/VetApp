@@ -4,13 +4,20 @@ import { useRouter } from 'vue-router';
 import '@nordhealth/components/lib/Button';
 import '@nordhealth/components/lib/Card';
 import '@nordhealth/components/lib/Checkbox';
+import '@nordhealth/components/lib/Icon';
 import '@nordhealth/components/lib/Input';
 import '@nordhealth/components/lib/Spinner';
 import '@nordhealth/components/lib/Stack';
 import { useForm } from '@/composables/useForm';
+import { usePasswordToggle } from '@/composables/usePasswordToggle';
 
 const router = useRouter();
 const { form, errors, validate, reset } = useForm();
+const {
+	inputType: passwordInputType,
+	toggle: toggleShowPassword,
+	toggleLabel,
+} = usePasswordToggle();
 const isSubmitting = ref(false);
 
 const handleSubmit = async () => {
@@ -52,7 +59,7 @@ const handleSubmit = async () => {
 
 					<nord-input
 						:value="form.password"
-						type="password"
+						:type="passwordInputType"
 						name="new-password"
 						autocomplete="new-password"
 						label="Password"
@@ -63,11 +70,27 @@ const handleSubmit = async () => {
 						hide-required
 						:error="errors.password"
 						@input="form.password = ($event.target as HTMLInputElement).value"
-					/>
+					>
+						<nord-button
+							slot="end"
+							square
+							size="s"
+							:title="toggleLabel"
+							class="password-toggle"
+							@click="toggleShowPassword"
+						>
+							<nord-icon
+								:name="
+									passwordInputType === 'password' ? 'interface-edit-off' : 'interface-edit-on'
+								"
+								size="s"
+							/>
+						</nord-button>
+					</nord-input>
 
 					<nord-input
 						:value="form.confirmPassword"
-						type="password"
+						:type="passwordInputType"
 						name="confirm-password"
 						label="Confirm password"
 						placeholder="••••••••"
@@ -77,7 +100,23 @@ const handleSubmit = async () => {
 						hide-required
 						:error="errors.confirmPassword"
 						@input="form.confirmPassword = ($event.target as HTMLInputElement).value"
-					/>
+					>
+						<nord-button
+							slot="end"
+							square
+							size="s"
+							:title="toggleLabel"
+							class="password-toggle"
+							@click="toggleShowPassword"
+						>
+							<nord-icon
+								:name="
+									passwordInputType === 'password' ? 'interface-edit-off' : 'interface-edit-on'
+								"
+								size="s"
+							/>
+						</nord-button>
+					</nord-input>
 
 					<nord-checkbox
 						:checked="form.receiveUpdates"
@@ -109,5 +148,10 @@ const handleSubmit = async () => {
 	inline-size: 90%;
 	max-inline-size: 340px;
 	margin: var(--n-space-xl) auto;
+}
+
+:root .password-toggle {
+	--n-button-background-color: transparent !important;
+	--n-button-border-color: transparent !important;
 }
 </style>
