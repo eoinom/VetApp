@@ -1,8 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import SignupForm from '@/components/SignupForm.vue';
+
+definePageMeta({
+	title: 'Sign Up',
+	meta: [{ name: 'description', content: 'Create your account to access our product.' }],
+});
+</script>
 
 <template>
-	<div>
-		<h1>Sign up page!</h1>
-		<NuxtLink to="/success">Go to Success Page</NuxtLink>
-	</div>
+	<SignupForm />
 </template>
