@@ -27,6 +27,15 @@ export const useForm = () => {
 
 		if (!form.password) {
 			errors.password = 'Password is required';
+		} else if (
+			form.password.length < 8 ||
+			!/[A-Z]/.test(form.password) ||
+			!/[a-z]/.test(form.password) ||
+			!/[0-9]/.test(form.password) ||
+			!/[!@#$%^&*(),.?":{}|<>]/.test(form.password)
+		) {
+			errors.password =
+				'Please enter a password at least 8 characters long which contains an upper and lower case letter, a number and a symbol.';
 		}
 
 		if (!form.confirmPassword) {
