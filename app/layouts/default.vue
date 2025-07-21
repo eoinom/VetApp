@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from '~/constants';
 import '@nordhealth/components/lib/Select';
 import '@nordhealth/components/lib/TopBar';
 
@@ -68,10 +69,14 @@ const headLinks = computed(() => [fontLink, currentThemeLink.value]);
 const changeTheme = (themeValue: Theme) => (currentThemeOption.value = getThemeOption(themeValue)!);
 
 useHead({
-	title: 'VetApp',
+	title: SITE_TITLE,
 	meta: [
-		{ name: 'description', content: 'Create your account to access VetApp.' },
+		{ name: 'description', content: SITE_DESCRIPTION },
 		{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+		{ name: 'author', content: SITE_AUTHOR },
+		{ name: 'application-name', content: SITE_TITLE },
+		{ name: 'apple-mobile-web-app-title', content: SITE_TITLE },
+		{ name: 'msapplication-TileColor', content: '#ffffff' },
 	],
 	link: headLinks,
 });
@@ -79,7 +84,7 @@ useHead({
 
 <template>
 	<nord-top-bar>
-		<span>VetApp</span>
+		<span>{{ SITE_TITLE }}</span>
 		<div slot="end">
 			<nord-select
 				:value="currentThemeOption.val"
