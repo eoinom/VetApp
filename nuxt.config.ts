@@ -12,6 +12,14 @@ export default defineNuxtConfig({
 		},
 	},
 	css: ['@nordhealth/css/lib/nord.min.css'],
+	vite: {
+		vue: {
+			compilerOptions: {
+				isCustomElement: (tag: string) => tag.includes('-'),
+			},
+			customElements: true,
+		},
+	},
 	typescript: {
 		tsConfig: {
 			compilerOptions: {
