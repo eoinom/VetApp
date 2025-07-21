@@ -38,9 +38,7 @@ const handleSubmit = async () => {
 <template>
 	<nord-stack class="stack">
 		<nord-card padding="l">
-			<template #header>
-				<h1>Sign in to Nord</h1>
-			</template>
+			<h1 slot="header">Sign up to {{ SITE_TITLE }}</h1>
 			<form novalidate @submit.prevent="handleSubmit">
 				<nord-stack gap="m" direction="vertical" align-items="stretch">
 					<nord-input
@@ -154,5 +152,6 @@ const handleSubmit = async () => {
 :root .password-toggle {
 	--n-button-background-color: transparent !important;
 	--n-button-border-color: transparent !important;
+	--n-button-box-shadow: none !important;
 }
 </style>
