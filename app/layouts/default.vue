@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from '~/constants';
+import { SITE_TITLE } from '~/constants';
 import '@nordhealth/components/lib/Select';
 import '@nordhealth/components/lib/TopBar';
 
@@ -44,11 +44,6 @@ const getThemeOption = (value: Theme): ThemeOption | undefined =>
 
 const currentThemeOption = ref<ThemeOption>(getThemeOption('auto')!); // Default to system preference
 
-const fontLink = {
-	rel: 'stylesheet',
-	href: 'https://nordcdn.net/ds/fonts/3.0.3/fonts.css',
-};
-
 const currentThemeLink = computed(() => {
 	let themeHref;
 	if (currentThemeOption.value.val === 'auto') {
@@ -64,21 +59,11 @@ const currentThemeLink = computed(() => {
 		id: 'theme-link',
 	};
 });
-const headLinks = computed(() => [fontLink, currentThemeLink.value]);
 
 const changeTheme = (themeValue: Theme) => (currentThemeOption.value = getThemeOption(themeValue)!);
 
 useHead({
-	title: SITE_TITLE,
-	meta: [
-		{ name: 'description', content: SITE_DESCRIPTION },
-		{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
-		{ name: 'author', content: SITE_AUTHOR },
-		{ name: 'application-name', content: SITE_TITLE },
-		{ name: 'apple-mobile-web-app-title', content: SITE_TITLE },
-		{ name: 'msapplication-TileColor', content: '#ffffff' },
-	],
-	link: headLinks,
+	link: [currentThemeLink],
 });
 </script>
 
