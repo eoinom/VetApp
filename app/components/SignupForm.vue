@@ -29,6 +29,10 @@ const handleSubmit = async () => {
 	// Simulate async process (e.g., API call)
 	await new Promise((resolve) => setTimeout(resolve, 1000));
 
+	// Save form data
+	localStorage.setItem('signup-email', form.email);
+	localStorage.setItem('signup-updates', String(form.receiveUpdates));
+
 	reset();
 	isSubmitting.value = false;
 	router.push('/success');
