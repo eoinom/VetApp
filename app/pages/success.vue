@@ -8,13 +8,18 @@ useHead({
 	title: 'Success',
 });
 
-const email = ref('');
+const email = ref<string | null>(null);
 const receiveUpdates = ref(false);
 
 onMounted(() => {
 	// Simulate retrieving signup data from localStorage
-	email.value = localStorage.getItem('signup-email') ?? '';
+	email.value = localStorage.getItem('signup-email');
 	receiveUpdates.value = localStorage.getItem('signup-updates') === 'true';
+
+	if (!email.value) {
+		// redirect to signup if no email is found
+		window.location.href = '/';
+	}
 });
 </script>
 
@@ -25,12 +30,11 @@ onMounted(() => {
 			<h1 class="n-align-center">You're signed up!</h1>
 		</nord-stack>
 
-		<p v-if="email" class="n-align-center">
+		<p class="n-align-center">
 			Thanks for signing up with your email,
 			<strong class="n-font-weight-strong">{{ email }}</strong
 			>.
 		</p>
-		<p v-else class="n-align-center">Thanks for signing up.</p>
 
 		<p v-if="receiveUpdates" class="n-align-center">
 			You'll soon start receiving occasional updates and product news.
