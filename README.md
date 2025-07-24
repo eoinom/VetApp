@@ -20,7 +20,8 @@ A client-side rendered Nuxt 4 application that allows users to sign up for a pro
 - 🌐 SEO metadata with `useSeoMeta()`
 - 💡 Page transitions
 - 🔀 State reset and success confirmation page
-- 🧰 **Unit tests** with Vitest
+- 🧪 **Unit tests** with Vitest
+- 🧭 **E2E tests** with Playwright (cross-browser)
 - 🔍 Linting with ESLint + Prettier
 - ☁️ Deployable to **Netlify**
 
@@ -43,8 +44,10 @@ A client-side rendered Nuxt 4 application that allows users to sign up for a pro
 ├── public/
 ├── tests/
 │   ├── setup.ts
+│   └── e2e/
+├── netlify.toml
 ├── nuxt.config.ts
-└── netlify.toml
+└── playwright.config.ts
 ```
 
 ---
@@ -103,6 +106,29 @@ yarn test
 
 # bun
 bun run test
+```
+
+### E2E Tests (Playwright)
+
+```bash
+# npm
+npm run test:e2e
+
+# pnpm
+pnpm test:e2e
+
+# yarn
+yarn test:e2e
+
+# bun
+bun run test:e2e
+
+```
+
+#### Run Playwright tests in headed mode:
+
+```bash
+npx playwright test --headed --slow-mo 500
 ```
 
 ---
@@ -167,6 +193,7 @@ npx serve .output/public
 - [Vue 3](https://vuejs.org)
 - [Nordhealth Design System](https://nordhealth.design)
 - [Vitest](https://vitest.dev)
+- [Playwright](https://playwright.dev/)
 - [Netlify](https://netlify.com)
 
 ---
