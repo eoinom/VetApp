@@ -1,10 +1,56 @@
-# Nuxt Minimal Starter
+# VetApp
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/033e9037-2f97-46ed-8b78-721cc04d34d7/deploy-status)](https://app.netlify.com/sites/vetapp-signup/deploys)
 
-## Setup
+A client-side rendered Nuxt 4 application that allows users to sign up for a product using the [Nordhealth Design System (VET theme)](https://nordhealth.design). The app demonstrates reusable web-components, validation, transitions, testing, and is ready for deployment on Netlify.
 
-Make sure to install dependencies:
+---
+
+## 🚀 Features
+
+- ✅ Built with **Nuxt 4** in client-only mode (`ssr: false`)
+- 🎨 Styled using the **Nordhealth Design System** (VET theme)
+- 📅 Signup form with:
+  - Email & password validation
+  - Show/hide password toggle
+  - Opt-in for marketing
+
+- 🔒 Form validation and error handling
+- 🌐 SEO metadata with `useSeoMeta()`
+- 💡 Page transitions
+- 🔀 State reset and success confirmation page
+- 🧰 **Unit tests** with Vitest
+- 🔍 Linting with ESLint + Prettier
+- ☁️ Deployable to **Netlify**
+
+---
+
+## 🧱 Project Structure
+
+```
+.
+├── components/
+│   └── SignupForm.vue
+├── composables/
+│   └── useForm.ts
+│   └── usePasswordToggle.ts
+├── layouts/
+│   └── default.vue
+├── pages/
+│   ├── index.vue
+│   └── success.vue
+├── public/
+├── tests/
+│   ├── setup.ts
+├── nuxt.config.ts
+└── netlify.toml
+```
+
+---
+
+## ⚙️ Getting Started
+
+### 1. Install Dependencies
 
 ```bash
 # npm
@@ -20,9 +66,7 @@ yarn install
 bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+### 2. Start Development Server
 
 ```bash
 # npm
@@ -38,25 +82,50 @@ yarn dev
 bun run dev
 ```
 
-## Production
+App runs at [http://localhost:3000](http://localhost:3000)
 
-Build the application for production:
+---
+
+## 🧲 Testing
+
+### Unit Tests (Vitest)
 
 ```bash
 # npm
-npm run build
+npm run test
 
 # pnpm
-pnpm build
+pnpm test
 
 # yarn
-yarn build
+yarn test
 
 # bun
-bun run build
+bun run test
 ```
 
-Locally preview production build:
+---
+
+## 🧹 Linting & Formatting
+
+```bash
+npm run lint         # Check lint issues
+npm run lint:fix     # Auto-fix lint issues
+```
+
+---
+
+## ☁️ Deployment (Netlify)
+
+This app is optimized for static hosting.
+
+### Build for Production
+
+```bash
+npm run generate
+```
+
+### Preview Locally
 
 ```bash
 # npm
@@ -70,6 +139,43 @@ yarn preview
 
 # bun
 bun run preview
+
+# or:
+npx serve .output/public
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+### Netlify Settings
+
+- **Build command:** `npm run generate`
+- **Publish directory:** `dist`
+
+### Redirects (via `netlify.toml`)
+
+```toml
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+---
+
+## 🧐 Tech Stack
+
+- [Nuxt 4](https://nuxt.com)
+- [Vue 3](https://vuejs.org)
+- [Nordhealth Design System](https://nordhealth.design)
+- [Vitest](https://vitest.dev)
+- [Netlify](https://netlify.com)
+
+---
+
+## 🔗 Live Demo
+
+Deployed on Netlify: [https://vetapp-signup.netlify.app/](https://vetapp-signup.netlify.app/)
+
+---
+
+## ✨ Author
+
+Built by Eoin O'Malley.
