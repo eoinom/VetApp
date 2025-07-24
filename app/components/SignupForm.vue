@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { SITE_TITLE } from '~/constants';
+import { SITE_TITLE } from '@/constants';
 import '@nordhealth/components/lib/Button';
 import '@nordhealth/components/lib/Card';
 import '@nordhealth/components/lib/Checkbox';

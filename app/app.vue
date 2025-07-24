@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from '~/constants';
+import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from '@/constants';
 
 useHead({
 	link: [

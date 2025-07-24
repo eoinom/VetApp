@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { SITE_TITLE } from '~/constants';
+import { SITE_TITLE } from '@/constants';
 import '@nordhealth/components/lib/Select';
 import '@nordhealth/components/lib/TopBar';
 
