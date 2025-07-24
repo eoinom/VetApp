@@ -18,5 +18,6 @@ export default withNuxt({
 		'prettier/prettier': 'error',
 		...eslintConfigPrettier.rules,
 		'vue/no-deprecated-slot-attribute': 'off', // Disable as conflicting with web components
+		'vue/no-multiple-template-root': 'off', // Disable as Nuxt 4 supports multiple root nodes
 	},
 });
