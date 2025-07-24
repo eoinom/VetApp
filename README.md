@@ -21,6 +21,7 @@ A client-side rendered Nuxt 4 application that allows users to sign up for a pro
 - 🧪 **Unit tests** with Vitest
 - 🧭 **E2E tests** with Playwright (cross-browser)
 - 🔍 Linting with ESLint + Prettier
+- 🤖 Automated CI with GitHub Actions (unit tests, linting, E2E)
 - ☁️ Deployed to **Netlify**
 
 ## 🖼️ Screenshots
@@ -148,6 +149,19 @@ npx playwright test --headed --slow-mo 500
 npm run lint         # Check lint issues
 npm run lint:fix     # Auto-fix lint issues
 ```
+
+## 🤖 Continuous Integration (CI)
+
+This project uses **GitHub Actions** for CI/CD.  
+On every push or pull request, it will automatically:
+
+- ✅ Run unit tests (Vitest)
+- 🔍 Check linting & formatting (ESLint + Prettier)
+- 🧪 Run E2E tests (Playwright)
+
+### GitHub Actions Workflow
+
+See `.github/workflows/ci.yml` for full configuration.
 
 ## ☁️ Deployment (Netlify)
 
