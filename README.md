@@ -1,5 +1,6 @@
 # VetApp
 
+![Build](https://github.com/eoinom/vetapp/actions/workflows/ci.yml/badge.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/033e9037-2f97-46ed-8b78-721cc04d34d7/deploy-status)](https://app.netlify.com/sites/vetapp-signup/deploys)
 
 A client-side rendered Nuxt 4 application that allows users to sign up for a product using the [Nordhealth Design System (VET theme)](https://nordhealth.design). The app demonstrates reusable web-components, validation, transitions, testing, and is ready for deployment on Netlify.
